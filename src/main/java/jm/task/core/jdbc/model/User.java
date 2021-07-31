@@ -1,7 +1,5 @@
 package jm.task.core.jdbc.model;
 
-import org.hibernate.*;
-
 import javax.persistence.*;
 import java.util.Objects;
 

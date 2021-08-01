@@ -7,7 +7,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
 public class Util {
-    public static SessionFactory session = null;
+    private static SessionFactory session;
     private static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String URL = "jdbc:mysql://localhost:3306/base?serverTimezone=UTC";
     private static final String USER = "root";

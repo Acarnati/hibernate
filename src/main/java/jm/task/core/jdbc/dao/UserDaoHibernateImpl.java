@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import jm.task.core.jdbc.util.Util;
 import org.hibernate.Transaction;
 
+import javax.persistence.criteria.CriteriaQuery;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -96,7 +97,9 @@ public class UserDaoHibernateImpl implements UserDao {
         Session sess = sessionFact.openSession();
         try {
             Transaction transact = sess.beginTransaction();
-            array = sess.createCriteria(User.class).list();
+            CriteriaQuery<User> cq = sess.getCriteriaBuilder().createQuery(User.class);
+            cq.from(User.class);
+            array = sess.createQuery(cq).getResultList();
             sess.getTransaction().commit();
         } catch (Exception throwables) {
             throwables.printStackTrace();
